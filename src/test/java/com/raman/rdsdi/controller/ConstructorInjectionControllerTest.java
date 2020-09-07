@@ -1,10 +1,8 @@
 package com.raman.rdsdi.controller;
 
-import com.raman.rdsdi.service.GreetingServiceImpl;
+import com.raman.rdsdi.service.PropertyGreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Here we will mimic, what Spring Application Context does to achieve Constructor based DI
@@ -15,7 +13,7 @@ class ConstructorInjectionControllerTest {
 
     @BeforeEach
     void setUp() {
-        controller = new ConstructorInjectionController(new GreetingServiceImpl());
+        controller = new ConstructorInjectionController(new PropertyGreetingServiceImpl());
     }
 
     @Test

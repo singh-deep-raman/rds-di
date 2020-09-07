@@ -1,11 +1,8 @@
 package com.raman.rdsdi.controller;
 
-import com.raman.rdsdi.service.GreetingService;
-import com.raman.rdsdi.service.GreetingServiceImpl;
+import com.raman.rdsdi.service.PropertyGreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Here we will mimic, what Spring Application Context does to implement PropertyBased DI
@@ -17,7 +14,7 @@ class PropertyInjectorControllerTest {
     @BeforeEach
     void setUp() {
         controller = new PropertyInjectorController();
-        controller.greetingService = new GreetingServiceImpl(); // as you can see it is not OOP friendly
+        controller.greetingService = new PropertyGreetingServiceImpl(); // as you can see it is not OOP friendly
     }
 
     @Test

@@ -6,7 +6,9 @@ package com.raman.rdsdi.service;
  *      2. Setter injection
  *      3. Constructor injection
  *
+ *  We will have multiple implementations of this interface for differenct controllers
  */
 public interface GreetingService {
+
     String greetMessage();
 }

@@ -1,10 +1,8 @@
 package com.raman.rdsdi.controller;
 
-import com.raman.rdsdi.service.GreetingServiceImpl;
+import com.raman.rdsdi.service.PropertyGreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Here we will mimic what Spring Context does to achieve Setter based DI
@@ -16,7 +14,7 @@ class SetterInjectorControllerTest {
     @BeforeEach
     void setUp() {
         controller = new SetterInjectorController();
-        controller.setGreetingService(new GreetingServiceImpl()); // this is the key line
+        controller.setGreetingService(new PropertyGreetingServiceImpl()); // this is the key line
     }
 
     @Test

@@ -25,7 +25,7 @@ public class RdsDiApplication {
 
         // R --> This application will run and stop when main method finishes, in case of web application a web server is configured automatically
 
-        System.out.println("Property based DI with Spring");
+        System.out.println("\nProperty based DI with Spring");
         // if you don't have Spring Stereotype annotation i.e. @Controller on PropertyInjectorController, then you will get error as
         // No bean named 'PropertyInjectorController' available
         PropertyInjectorController propertyInjectorController = (PropertyInjectorController) context.getBean("propertyInjectorController");
@@ -34,11 +34,11 @@ public class RdsDiApplication {
          *  Above error occurs if you are using @Autowired on a property but that is not Spring Managed Component i.e. no annotation
          */
 
-        System.out.println("Setter based DI with Spring");
+        System.out.println("\nSetter based DI with Spring");
         SetterInjectorController setterInjectorController = (SetterInjectorController) context.getBean("setterInjectorController");
         System.out.println(setterInjectorController.greetMessage());
 
-        System.out.println("Constructor based DI with Spring");
+        System.out.println("\nConstructor based DI with Spring");
         ConstructorInjectionController constructorInjectionController = (ConstructorInjectionController) context.getBean("constructorInjectionController");
         System.out.println(constructorInjectionController.greetMessage());
     }

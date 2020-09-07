@@ -3,9 +3,10 @@ package com.raman.rdsdi.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GreetingServiceImpl implements GreetingService {
+public class ConstructorGreetingServiceImpl implements GreetingService {
+
     @Override
     public String greetMessage() {
-        return "Hey !! How are you?";
+        return "Hi from Constructor Greeting Service.";
     }
 }
