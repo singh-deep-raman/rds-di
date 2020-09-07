@@ -1,13 +1,13 @@
 package com.raman.rdsdi.controller;
 
 import com.raman.rdsdi.service.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-/**
- * This class demonstrates how Property Injector DI works, refer to it's test
- */
+@Controller // tells that it is a Spring Managed Component
 public class PropertyInjectorController {
 
-    /** As we will need to inject object in this, we can't declare it as private, violates OOPs also*/
+    @Autowired // it tells that this is Property Based Injection
     GreetingService greetingService;
 
     public String greetMessage() {

@@ -1,15 +1,14 @@
 package com.raman.rdsdi.controller;
 
 import com.raman.rdsdi.service.GreetingService;
+import org.springframework.stereotype.Controller;
 
-/**
- * This class will use Constructor Injection DI technique to inject Services in this class
- */
+@Controller
 public class ConstructorInjectionController {
 
-    /** better than Setter injection because field is final, and no one can change using setter again */
     private final GreetingService greetingService;
 
+    // no need of @Autowired annotation in case of Constructor Dependency Injection with Spring Application Context
     public ConstructorInjectionController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }

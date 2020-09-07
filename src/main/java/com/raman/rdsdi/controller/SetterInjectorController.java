@@ -1,13 +1,15 @@
 package com.raman.rdsdi.controller;
 
 import com.raman.rdsdi.service.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-/** This class will use Setter Injection DI technique to inject Services in Controller */
+@Controller // tells it is Spring Managed Controller
 public class SetterInjectorController {
 
-    /** Better than Property Injection because our field is private now, but still it is not final, so not tightly Encapsulated */
     private GreetingService greetingService;
 
+    @Autowired // denotes Setter based DI with Spring Application Context
     public void setGreetingService(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
