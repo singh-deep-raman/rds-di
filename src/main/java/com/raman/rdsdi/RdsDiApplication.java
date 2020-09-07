@@ -16,12 +16,12 @@ public class RdsDiApplication {
         /** SpringApplication.run() returns ConfigurableApplicationContext instance, which you can save in ApplicationContext too */
         ApplicationContext context = SpringApplication.run(RdsDiApplication.class, args);
 
+        System.out.println("\nPrimary Bean greeting:");
         /** Get reference of Controller class from Spring Context */
         MyController myController = (MyController) context.getBean("myController");
         // R --> By default while creating controllers, spring assigns name same as class name but with camel case
 
-        String helloMsg = myController.sayHello();
-        System.out.println(helloMsg);
+        System.out.println(myController.sayHello());
 
         // R --> This application will run and stop when main method finishes, in case of web application a web server is configured automatically
 
