@@ -1,9 +1,6 @@
 package com.raman.rdsdi;
 
-import com.raman.rdsdi.controller.ConstructorInjectionController;
-import com.raman.rdsdi.controller.MyController;
-import com.raman.rdsdi.controller.PropertyInjectorController;
-import com.raman.rdsdi.controller.SetterInjectorController;
+import com.raman.rdsdi.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -41,6 +38,10 @@ public class RdsDiApplication {
         System.out.println("\nConstructor based DI with Spring");
         ConstructorInjectionController constructorInjectionController = (ConstructorInjectionController) context.getBean("constructorInjectionController");
         System.out.println(constructorInjectionController.greetMessage());
+
+        System.out.println("\nGreeting with Profile");
+        I18NController i18NController = (I18NController)context.getBean("i18NController");
+        System.out.println(i18NController.greetMessage());
     }
 
 }
