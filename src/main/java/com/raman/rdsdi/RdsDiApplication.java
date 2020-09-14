@@ -39,9 +39,6 @@ public class RdsDiApplication {
         ConstructorInjectionController constructorInjectionController = (ConstructorInjectionController) context.getBean("constructorInjectionController");
         System.out.println(constructorInjectionController.greetMessage());
 
-        System.out.println("\nGreeting with Profile");
-        I18NController i18NController = (I18NController)context.getBean("i18NController");
-        System.out.println(i18NController.greetMessage());
     }
 
 }

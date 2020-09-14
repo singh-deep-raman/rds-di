@@ -10,5 +10,5 @@ package com.raman.rdsdi.service;
  */
 public interface GreetingService {
 
-    String greetMessage();
+    String sayGreeting();
 }
