@@ -2,6 +2,7 @@ package com.raman.rdsdi;
 
 import com.raman.rdsdi.controller.*;
 import com.raman.rdsdi.examplebeans.FakeDataSource;
+import com.raman.rdsdi.examplebeans.FakeJmsSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -43,6 +44,10 @@ public class RdsDiApplication {
         System.out.println("Fake DataSource using @PropertySource and PropertySourcesPlaceholderConfigurer ");
         FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class); // you can get bean with name or class type
         System.out.println(fakeDataSource);
+
+        System.out.println("Fake JmsSource showing how to load multiple properties file");
+        FakeJmsSource jmsSource = context.getBean(FakeJmsSource.class);
+        System.out.println(jmsSource);
     }
 
 }

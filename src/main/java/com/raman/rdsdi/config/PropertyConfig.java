@@ -1,11 +1,13 @@
 package com.raman.rdsdi.config;
 
 import com.raman.rdsdi.examplebeans.FakeDataSource;
+import com.raman.rdsdi.examplebeans.FakeJmsSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
@@ -13,7 +15,11 @@ import org.springframework.core.env.Environment;
  * This class will return a bean of FakeDataSource by picking values from external properties file we created
  */
 @Configuration
-@PropertySource("classpath:datasources.properties") // it is must to specify from which properties file to load values
+//@PropertySource({"classpath:datasources.properties", "classpath:jms.properties"}) // before spring 4
+@PropertySources({
+        @PropertySource("classpath:datasources.properties"),
+        @PropertySource("classpath:jms.properties")
+})
 public class PropertyConfig {
 
     /** this class will have environment variables */
@@ -29,6 +35,16 @@ public class PropertyConfig {
 
     @Value("${guru.dburl}")
     String dburl;
+
+    /** below are values for JMS loaded for jms.properties file */
+    @Value("${guru.jms.username}")
+    String jmsUsername;
+
+    @Value("${guru.jms.password}")
+    String jmsPassword;
+
+    @Value("guru.jms.url")
+    String jmsUrl;
 
     /** This bean is required to get values from external properties file and load it into variables with @Value annotation */
     /** R--> If you don't provide 'static' keyword here, it won't work at all. It's because we want PropertySourcesPlaceholderConfigurer bean at the very start
@@ -50,5 +66,14 @@ public class PropertyConfig {
 
         fakeDataSource.setPassword(password);
         return fakeDataSource;
+    }
+
+    @Bean
+    public FakeJmsSource fakeJmsSource() {
+        FakeJmsSource fakeJmsSource = new FakeJmsSource();
+        fakeJmsSource.setJmsUsername(jmsUsername);
+        fakeJmsSource.setJmsPassword(jmsPassword);
+        fakeJmsSource.setJmsUrl(jmsUrl);
+        return fakeJmsSource;
     }
 }
