@@ -25,10 +25,10 @@ public class RdsDiApplication {
 
         System.out.println("\nProperty based DI with Spring");
         // if you don't have Spring Stereotype annotation i.e. @Controller on PropertyInjectorController, then you will get error as
-        // No fakeDataSource named 'PropertyInjectorController' available
+        // No bean named 'PropertyInjectorController' available
         PropertyInjectorController propertyInjectorController = (PropertyInjectorController) context.getBean("propertyInjectorController");
         System.out.println(propertyInjectorController.greetMessage());
-        /** No qualifying fakeDataSource of type 'com.raman.rdsdi.service.GreetingService' available
+        /** No qualifying bean of type 'com.raman.rdsdi.service.GreetingService' available
          *  Above error occurs if you are using @Autowired on a property but that is not Spring Managed Component i.e. no annotation
          */
 
