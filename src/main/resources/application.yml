@@ -1,0 +1,8 @@
+# JMS configurations, it is same as reading from .properties file just the syntax is different
+# Spring will automatically read .yml and construct properties like guru.jms.username and so on
+# It is also true if a duplicate property is found, it will be overridden, so make sure .properties and .yml have unique keys
+guru:
+  jms:
+    username: JMS Username1
+    password: jmspassword1
+    url: jmsurl1
