@@ -26,7 +26,8 @@ public class PropertyConfig {
     String dburl;
 
     /** This bean is required to get values from external properties file and load it into variables with @Value annotation */
-    /** R--> If you don't provide 'static' keyword here, it won't work at all */
+    /** R--> If you don't provide 'static' keyword here, it won't work at all. It's because we want PropertySourcesPlaceholderConfigurer bean at the very start
+     *      so making it static will call this method at Class loading and then @Value annotation will be used */
     @Bean
     public static PropertySourcesPlaceholderConfigurer properties() {
         PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
