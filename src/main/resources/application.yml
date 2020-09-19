@@ -6,3 +6,16 @@ guru:
     username: JMS Username1
     password: jmspassword1
     url: jmsurl1
+
+--- # it is a file separator, you can have multiple files in a single file in yaml, below file will override value for default
+spring:
+  profile:de
+guru:
+  jms:
+    password: jmaspassword**in**german
+
+# Must read from Spring documentation (you don't know how it overrides because naming convention is not there)
+# In case of application.properties, contents are overridden by application-<profile-name>.properties
+
+# In case of YAML, Multi-profile YAML Documents
+# You can specify multiple profile-specific YAML documents in a single file by using a spring.profiles key to indicate when the document applies, as shown in the following example:
