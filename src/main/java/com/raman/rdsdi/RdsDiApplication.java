@@ -41,11 +41,11 @@ public class RdsDiApplication {
         ConstructorInjectionController constructorInjectionController = (ConstructorInjectionController) context.getBean("constructorInjectionController");
         System.out.println(constructorInjectionController.greetMessage());
 
-        System.out.println("Fake DataSource using @PropertySource and PropertySourcesPlaceholderConfigurer ");
+        System.out.println("Properties in application.properties file");
         FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class); // you can get bean with name or class type
         System.out.println(fakeDataSource);
 
-        System.out.println("Fake JmsSource showing how to load multiple properties file");
+        System.out.println("Properties in application.properties file");
         FakeJmsSource jmsSource = context.getBean(FakeJmsSource.class);
         System.out.println(jmsSource);
     }
