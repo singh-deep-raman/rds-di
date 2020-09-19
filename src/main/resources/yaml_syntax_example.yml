@@ -1,0 +1,51 @@
+# This is a comment
+
+# A single variable
+name: Raman
+
+# An array or list, 4 spaces are used
+names:
+    - Joey
+    - Chandler
+    - Ross
+    - Monica
+    - Rachel
+    - Phoebe
+
+# object comprising of other objects
+# below is a book object comprising of 2 fields
+book:
+    author: Brian Tracy
+    publisher: Abc Publishers
+
+# below are variations of boolean true
+true_boolean1: yes
+true_boolean2: true
+true_boolean3: True
+true_boolean4: TRUE
+
+# below are variations of boolean false
+false_boolean1: no
+false_boolean2: false
+false_boolean3: False
+false_boolean4: FALSE
+
+# If your string contains special chars (like ' or :), use double quotes
+my_string: "I don't think YAML is for me"
+my_string2: "raman:deep:singh"
+
+# If you want to write something in the form of paragraph that is include lines, use pipe operator
+include_new_lines: |
+  This is a text
+  I like this way of writing
+  Because it is easy to read
+
+# If you want to write something in form paragraph for reading purpose but that is a single string to you, use > operator
+exclude_new_lines: >
+  The quick brown
+  fox jumps right
+  over the lazy
+  dog
+
+
+
