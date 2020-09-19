@@ -1,11 +1,13 @@
 package com.raman.rdsdi.config;
 
 import com.raman.rdsdi.examplebeans.FakeDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
 
 /**
  * This class will return a bean of FakeDataSource by picking values from external properties file we created
@@ -14,8 +16,11 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @PropertySource("classpath:datasources.properties") // it is must to specify from which properties file to load values
 public class PropertyConfig {
 
-    /** Create 3 properties we added in properties file */
+    /** this class will have environment variables */
+    @Autowired
+    Environment environment;
 
+    /** Create 3 properties we added in properties file */
     @Value("${guru.username}")
     String username;
 
@@ -38,7 +43,11 @@ public class PropertyConfig {
     public FakeDataSource fakeDataSource() {
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setUrl(dburl);
-        fakeDataSource.setUser(username);
+
+        // instead of property file, now we are getting username from environment variable
+        // if we provide 'JAVA_HOME' it will print the java path
+        fakeDataSource.setUser(environment.getProperty("username"));
+
         fakeDataSource.setPassword(password);
         return fakeDataSource;
     }
